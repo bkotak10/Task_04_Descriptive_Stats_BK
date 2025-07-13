@@ -1,99 +1,70 @@
-Task_04_Descriptive_Stats
+# Task_04_Descriptive_Stats
+# Author - Bhaarat Kotak
 
-This repository contains three approaches to perform descriptive statistics and grouping operations on datasets related to the 2024 US Presidential Elections. The task was to explore the data using:
-	1.	Pure Python (no third-party libraries)
-	2.	Pandas
-	3.	Polars
+## Objective
+This repository is a submission for Research Task 04, which involves performing descriptive statistical analysis on real-world datasets using three different methods:
+- Pure Python (no external libraries)
+- Pandas
+- Polars
 
-⸻
+The dataset used consists of Facebook Ads, Facebook Posts, and Twitter Posts related to the 2024 U.S. Presidential Elections.
 
-📂 Dataset
+## Datasets
+**Note:** The datasets are not included in this repository to adhere to data privacy and size constraints. They must be downloaded separately from [this Google Drive link](https://drive.google.com/file/d/1Jq0fPb-tq76Ee_RtM58fT0_M3o-JDBwe/view?usp=sharing).
 
-Download the dataset used for this project from the following link:
-	•	Facebook Ads, Facebook Posts, and Twitter Posts Dataset
+Datasets:
+- `2024_fb_ads_president_scored_anon.csv`
+- `2024_fb_posts_president_scored_anon.csv`
+- `2024_tw_posts_president_scored_anon.csv`
 
-Note: Do not commit the dataset to the repository. Place the .csv files in the project root before running the scripts.
+## Scripts
 
-⸻
+### 1. `RA_pure_python_BK.py`
+- Implements base Python logic using `csv`, `math`, and `collections`.
+- Computes: Count, Mean, Min, Max, Std Dev, Unique Counts, Most Frequent Value.
+- Supports grouping by one or more keys (e.g., Page Id, Ad Id).
 
-🧑‍💻 Author
+### 2. `RA_pandas_BK.ipynb`
+- Leverages `pandas` to compute the same statistics as in the Pure Python script.
+- Additional summaries like `.describe()`, `.value_counts()`, and `.nunique()`.
+- Grouped analysis by columns like `facebook_id`, `page_id`, and `post_id`.
 
-Bhaarat Kotak
-M.S. in Information Systems
-Syracuse University
+### 3. `RA_polar_BK.ipynb`
+- Uses the `polars` library for performance-oriented analysis.
+- Computes count, mean, median, std dev, min, and max for numeric columns.
+- Supports group-by analysis for one and multiple columns.
+- Includes handling of missing values and calculation of column-wise mode.
 
-⸻
+## Instructions to Run
 
-🚀 Instructions to Run
+Make sure you have the required packages installed:
 
-1. Clone the Repository
+```bash
+pip install pandas polars
 
-git clone https://github.com/yourusername/Task_04_Descriptive_Stats.git
-cd Task_04_Descriptive_Stats
+---
 
-2. Place the Dataset
+### Key Takeaways
 
-Place the downloaded .csv files (e.g., 2024_fb_ads_president_scored_anon.csv, 2024_fb_posts_president_scored_anon.csv, 2024_tw_posts_president_scored_anon.csv) in the root directory of this repo.
+```markdown
+##  Key Takeaways
 
-3. Run the Pure Python Script
+- **Pandas**:
+  - Offers a highly intuitive and mature API.
+  - Great community support and excellent documentation.
+  - Slower performance for large datasets compared to Polars.
 
-python RA_pure_python_BK.py 2024_fb_ads_president_scored_anon.csv "Page Id" "Ad Id"
+- **Polars**:
+  - Extremely fast due to Rust backend and lazy execution.
+  - Syntax is more verbose than Pandas initially, but powerful once mastered.
+  - Best suited for large-scale analytical workloads.
 
-	•	You can replace the dataset name and grouping columns as needed.
+- **Pure Python**:
+  - Offers transparency and control.
+  - Not suitable for large-scale data due to lack of built-in optimizations.
+  - Good for educational purposes or environments where dependencies are restricted.
 
-4. Run the Pandas and Polars Notebooks
-
-Open the following files in Jupyter:
-	•	RA_pandas_BK.ipynb
-	•	RA_polar_BK.ipynb
-
-Run all cells. You may need to update the file path inside the notebook if your dataset is placed elsewhere.
-
-⸻
-
-📊 Key Takeaways
-	•	Polars:
-	•	Extremely fast and memory-efficient for large datasets.
-	•	Group-by and descriptive stats were concise and performant.
-	•	A bit less intuitive syntax for new users.
-	•	Pandas:
-	•	Most user-friendly and rich in functionality.
-	•	Flexible and highly compatible with visualization tools.
-	•	Slower on large-scale computations compared to Polars.
-	•	Pure Python:
-	•	Best for learning internals of statistics calculations.
-	•	No external dependencies.
-	•	Verbose and slower, especially with large datasets.
-
-All three approaches were used to compute:
-	•	Count, Mean, Min, Max, Std Dev (for numeric columns)
-	•	Unique values and most frequent values (for categorical columns)
-	•	Grouped analysis by one and multiple columns
-
-⸻
-
-🧪 Bonus
-	•	Grouped stats on Facebook Ads by Page Id and Ad Id
-	•	Mode and n-unique values per column
-	•	Insights on performance and API usability
-
-⸻
-
-📌 Requirements
-	•	Python 3.8+
-	•	Jupyter
-	•	pandas
-	•	polars
-
-Install dependencies with:
-
-pip install pandas polars jupyter
-
-
-⸻
-
-📨 Contact
-
-For queries or collaborations, please reach out to Bhaarat Kotak.
-
-⸻
+- **Overall**:
+  - For exploratory data analysis: Pandas is most beginner-friendly.
+  - For performance and scalability: Polars is the ideal choice.
+  - For absolute dependency-free environments or low-level control: Pure Python works, but requires more effort.
